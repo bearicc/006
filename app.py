@@ -1,7 +1,7 @@
 import mysql.connector
 from flask import Flask, render_template
 
-conn = mysql.connector.connect(user='root', password='1314', host='localhost', database='bearicc')
+conn = mysql.connector.connect(user='root', password='2015', host='localhost', database='bearicc')
 db = conn.cursor(dictionary=True)
 app = Flask(__name__)
 
