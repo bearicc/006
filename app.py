@@ -1,11 +1,17 @@
+import mysql.connector
 from flask import Flask, render_template
 
+conn = mysql.connector.connect(user='root', password='1314', host='localhost', database='bearicc')
+db = conn.cursor(dictionary=True)
 app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
-    return render_template('index.html')
+def home():
+    db.execute('select * from pc_info')
+    pc_info = list(db.fetchall())
+    conn.commit()
+    return render_template('index.html', pc_info=pc_info)
 
 if __name__ == "__main__":
     from flask import send_from_directory
@@ -31,3 +37,6 @@ if __name__ == "__main__":
         return send_from_directory('static/doc', path)
 
     app.run(host='localhost', port=8080, debug=True)
+
+    db.close()
+    conn.close()

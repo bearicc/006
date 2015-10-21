@@ -14,6 +14,14 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="css/index.css">
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -21,7 +29,22 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <div id="content">
+            <table class="table table-striped table-bordered table-hover table-condensed">
+                <tr class=success>
+                    <th>id</th>
+                    <th>load_cycle_count</th>
+                    <th>time</th>
+                </tr>
+                {% for i in pc_info %}
+                <tr>
+                    <th>{{i.id}}</th>
+                    <th>{{i.load_cycle_count}}</th>
+                    <th>{{i.time}}</th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
