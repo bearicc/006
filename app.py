@@ -1,8 +1,7 @@
-import mysql.connector
+from secure import db_conn
 from flask import Flask, render_template
 
-conn = mysql.connector.connect(user='root', password='2015', host='localhost', database='bearicc')
-db = conn.cursor(dictionary=True)
+db = db_conn.cursor(dictionary=True)
 app = Flask(__name__)
 
 
@@ -10,7 +9,7 @@ app = Flask(__name__)
 def home():
     db.execute('select * from pc_info')
     pc_info = list(db.fetchall())
-    conn.commit()
+    db_conn.commit()
     return render_template('index.html', pc_info=pc_info)
 
 if __name__ == "__main__":
@@ -39,4 +38,4 @@ if __name__ == "__main__":
     app.run(host='localhost', port=8080, debug=True)
 
     db.close()
-    conn.close()
+    db_conn.close()
