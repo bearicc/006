@@ -45,6 +45,9 @@ nav a.navbar-brand img {
   color: #fff;
   text-transform: uppercase;
 }
+.navbar-default .navbar-nav>li>a:nth-last-child(1) {
+    padding-right: 0;
+}
 .navbar-default a.navbar-brand:hover,
 .navbar-default .navbar-nav>li>a:hover {
   color: lightblue;

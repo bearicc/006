@@ -15,89 +15,6 @@ footer .visitor-tracking {
 footer .visitor-tracking div:nth-child(1n+2) {
   text-align: right;
 }
-/* ---------- resume ---------- */
-#content .resume { font-size: 18px; margin: auto; }
-#content .resume .my-row { margin-bottom: 15px; }
-#content .resume ul {
-  padding: 0;
-}
-#resume-link {
-  color: blue;
-  font-size: 26px;
-  font-weight: normal;
-  margin: 0 0 25px;
-}
-#resume-link a {
-  text-decoration: none;
-}
-#resume-link a:hover {
-  text-decoration: none;
-}
-#content .resume .title {
-  font-weight: bold;
-  font-size: 20px;
-}
-#content .resume ul.header {
-  display: flex;
-  display: -webkit-flex;
-  flex-direction: row;
-  -webkit-flex-direction: row;
-  justify-content: space-between;
-  -webkit-justify-content: space-between;
-  align-items: center;
-  -webkit-align-items: center;
-}
-#education ul.header li:nth-child(1){
-  flex-grow: 1;
-}
-#education ul.header li:nth-child(2){
-  flex: 0 0 auto;
-  width: 20%;
-  text-align: left;
-}
-#education ul.header li:nth-child(3){
-  flex: 0 0 auto;
-  width: 20%;
-  text-align: right;
-}
-#content .resume ul {
-  list-style-position: inside;
-}
-#content .resume div.header:hover,
-#content .resume p:hover,
-#content .resume ul.header:hover {
-  background-color: lightblue;
-}
-#content .resume ul.content li:hover {
-  background-color: lightgreen;
-}
-#content .resume .header div:nth-child(2) {
-  font-size: 26px;
-}
-#education p.title,
-#skills p.title,
-#experience p.title, 
-#publication p.title {
-  border-bottom: 1px solid black;
-}
-#content .resume ul.header {
-  display: flex;
-  display: -webkit-flex;
-  list-style: none;
-  flex-direction: row;
-  -webkit-flex-direction: row;
-  justify-content: space-between;
-  -webkit-justify-content: space-between;
-  align-items: center;
-  -webkit-align-items: center;
-}
-#education ul.content {
-  list-style: none;
-  padding-left: 4ex;
-}
-#content .resume span {
-  color: blue;
-}
 /* ---------- left and right panel ---------- */
 .main-container {
   position: relative;
@@ -188,21 +105,6 @@ footer .visitor-tracking div:nth-child(1n+2) {
   height: 100%;
   border-radius: 50%;
   cursor: pointer;
-}
-
-video#bgvid {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  background: url(polina.jpg) no-repeat;
-  background-size: cover;
 }
 
 #content {
