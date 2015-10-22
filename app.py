@@ -1,7 +1,11 @@
-from secure import db_conn
+from secure import cnxpool
 from flask import Flask, render_template
+import sys
+import logging
 
-db = db_conn.cursor(dictionary=True)
+
+cnx = cnxpool.get_connection()
+db = cnx.cursor(dictionary=True)
 app = Flask(__name__)
 
 
@@ -9,11 +13,32 @@ app = Flask(__name__)
 def home():
     db.execute('select * from pc_info')
     pc_info = list(db.fetchall())
-    db_conn.commit()
+    cnx.commit()
     return render_template('index.html', pc_info=pc_info)
+
+
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
 if __name__ == "__main__":
     from flask import send_from_directory
+
+    @app.route('/static/<path:path>')
+    def send_static(path):
+        return send_from_directory('static', path)
+
+    @app.route('/bootstrap/<path:path>')
+    def send_bootstrap(path):
+        return send_from_directory('static/bootstrap', path)
+
+    @app.route('/font-awesome/<path:path>')
+    def send_font_awesome(path):
+        return send_from_directory('static/font-awesome', path)
+
+    @app.route('/leaflet/<path:path>')
+    def send_leaflet(path):
+        return send_from_directory('static/leaflet', path)
 
     @app.route('/css/<path:path>')
     def send_css(path):
@@ -37,5 +62,7 @@ if __name__ == "__main__":
 
     app.run(host='localhost', port=8080, debug=True)
 
-    db.close()
-    db_conn.close()
+    #db.close()
+    #cnx.close()
+else:
+    logging.basicConfig(stream=sys.stderr)
